@@ -115,7 +115,7 @@ class PiSugarServer:
 
     def _send_and_recv_parse(self, cmd: bytes, expected: bytes, parser=None):
         self._conn.sendall(cmd)
-        for i in range(3):
+        for _ in range(3):
             resp = self._conn.recv(4096)
             resp = resp.replace(b'single', b'')
             resp = resp.replace(b'double', b'')
