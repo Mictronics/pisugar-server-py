@@ -347,7 +347,7 @@ class PiSugarServer:
         """Set script to be executed when soft poweroff is trigged."""
         return self._set_and_assert(b'set_soft_poweroff_shell', script.encode("utf-8"))
 
-    def set_battery_input_protect(self, enable: bool):
+    def set_input_protect(self, enable: bool):
         arg = b'true' if enable else b'false'
         return self._set_and_assert(b'set_input_protect', arg)
 
