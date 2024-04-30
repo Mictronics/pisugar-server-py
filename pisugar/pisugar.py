@@ -145,16 +145,16 @@ class PiSugarServer:
         """Get model"""
         return self._get_and_parse(b'model', _get_parse_str)
 
-    def get_fireware_version(self) -> str:
-        """Get fireware version (pisugar 3)"""
-        return self._get_and_parse(b'fireware_version', _get_parse_str)
+    def get_firmware_version(self) -> str:
+        """Get firmware version (pisugar 3)"""
+        return self._get_and_parse(b'firmware_version', _get_parse_str)
 
     def get_battery_level(self) -> float:
         """Get battery level(%)"""
         return self._get_and_parse(b'battery', _get_parse_float)
 
     def get_battery_voltage(self) -> float:
-        """Get battery valtage(V)"""
+        """Get battery voltage(V)"""
         return self._get_and_parse(b'battery_v', _get_parse_float)
 
     def get_battery_current(self) -> float:
@@ -287,7 +287,7 @@ class PiSugarServer:
         return self._get_and_parse(b'anti_mistouch', _get_parse_bool)
 
     def get_temperature(self):
-        """Get pisugar templature"""
+        """Get pisugar temperature"""
         return self._get_and_parse(b'temperature', _get_parse_float)
 
     def set_battery_charging_range(self, lower_bound: float, upper_bound: float):
@@ -299,7 +299,7 @@ class PiSugarServer:
         return self._set_and_assert(b'set_battery_charging_range', arg)
 
     def set_battery_input_protect(self, enable: bool):
-        """Enable/disable battery input protece"""
+        """Enable/disable battery input protect"""
         arg = b'true' if enable else b'false'
         return self._set_and_assert(b'set_battery_input_protect', arg)
 
@@ -360,7 +360,7 @@ class PiSugarServer:
         return self._set_and_assert(b'rtc_rtc2pi')
 
     def rtc_web(self):
-        """Repace rtc/os time with network time"""
+        """Replace rtc/os time with network time"""
         return self._set_and_assert(b'rtc_web')
 
     def rtc_alarm_set(self, time: datetime, weekday_repeat: 127):
