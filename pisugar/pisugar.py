@@ -1,18 +1,24 @@
 # -*- coding=utf-8 -*-
 
+import os
 import socket
 import sys
+import tempfile
 import threading
 from time import sleep
 from datetime import datetime
 
 
-def connect_domain_socket(file="/tmp/pisugar-server.sock"):
+def connect_domain_socket(file=None):
     """Connect pisugar server via unix domain socket file"""
+    tmpdir = tempfile.mkdtemp()
+    if file is None:
+        file = 'pisugar-server.sock'
+    path = os.path.join(tmpdir, file)
     s = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
-    conn = s.connect(file)
+    conn = s.connect(path)
     s = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
-    event_conn = s.connect(file)
+    event_conn = s.connect(path)
     return (conn, event_conn)
 
 
