@@ -111,7 +111,7 @@ class PiSugarServer:
                     print("Invalid event:", str(event), file=sys.stderr)
             except Exception as ex:
                 print("Exception: ", ex, file=sys.stderr)
-                sleep(1)
+                break
 
     def _send_and_recv_parse(self, cmd: bytes, expected: bytes, parser=None):
         self._conn.sendall(cmd)
