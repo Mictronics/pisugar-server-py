@@ -198,6 +198,7 @@ class PiSugarServer:
         try:
             return int(s)
         except Exception as ex:
+            print(ex)
             return None
 
     def get_battery_safe_shutdown_level(self):
@@ -245,6 +246,7 @@ class PiSugarServer:
         try:
             return datetime.fromisoformat(s)
         except Exception as ex:
+            print(ex)
             return None
 
     def get_rtc_alarm_enabled(self):
